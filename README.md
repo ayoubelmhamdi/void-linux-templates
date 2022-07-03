@@ -2,15 +2,17 @@
 some templates for voidlinux
 
 ### UPDATE
-[-] glibc to 2.35v
+- [x] glibc to 2.35v
 
 ### New
-[-] neovide
-[-] criterion
-[-] mprocs
-[-] gccdiag
-[*] gccdiag
+- [x] neovide
+- [x] criterion
+- [x] mprocs
+- [x] gccdiag
+
+- [ ] gnvim
+
 
 ### go back
-[-] curl 7.82
+- [x] curl 7.82
 
