@@ -1,16 +1,16 @@
 # void-linux-templates
 some templates for voidlinux
 
-- UPDATE
-glibc to 2.35v
+### UPDATE
+[-] glibc to 2.35v
 
-- New
-neovide
-criterion
-mprocs
-gccdiag
+### New
+[-] neovide
+[-] criterion
+[-] mprocs
+[-] gccdiag
+[*] gccdiag
 
-- go back
-
-curl 7.82
+### go back
+[-] curl 7.82
 
