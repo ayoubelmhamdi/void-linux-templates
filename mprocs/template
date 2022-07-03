@@ -1,0 +1,15 @@
+# Template file for 'mprocs'
+pkgname=mprocs
+version=0.5.0
+revision=1
+build_style=cargo
+short_desc="Run multiple commands in parallel"
+maintainer="Ayoub ELMHAMDI <ayoub.elmhamdi@gmail.com>"
+license="MIT"
+homepage="https://github.com/pvolok/mprocs"
+distfiles="https://github.com/pvolok/${pkgname}/archive/v${version}/${pkgname}-${version}.tar.gz"
+checksum=6c6f2b00848b3589c33f65b5d4f01af36fc9a8bcdd9ba65855c5e2a740d46d1e
+
+post_install() {
+	vlicense LICENSE
+}

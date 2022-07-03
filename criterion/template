@@ -1,0 +1,18 @@
+# Template file for 'criterion'
+pkgname=criterion
+version=2.4.1
+revision=1
+build_style=meson
+hostmakedepends="meson python3-cram glibc ninja pkg-config cmake libffi-devel"
+depends="gettext nanomsg libffi libgit2"
+checkdepends="python3-cram"
+short_desc="Cross-platform C and C++ unit testing framework for the 21th century"
+maintainer="Đoàn Trần Công Danh <congdanhqx@gmail.com>"
+license="MIT"
+homepage="https://github.com/Snaipe/Criterion"
+distfiles="https://github.com/Snaipe/Criterion/releases/download/v${version}/${pkgname}-${version}.tar.xz"
+checksum=d0f86a8fc868e2c7b83894ad058313023176d406501a4ee8863e5357e31a80e7
+
+post_install() {
+	vlicense LICENSE
+}
