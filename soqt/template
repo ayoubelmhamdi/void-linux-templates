@@ -1,0 +1,22 @@
+# Template file for 'soqt'
+pkgname=soqt
+version=2.4.1
+revision=1
+wrksrc="$pkgname"
+build_style=cmake
+configure_args="-fPIC -Wno-deprecated-declarations -fPIC -Wno-deprecated-declarations"
+hostmakedepends="The glue between Coin and Qt"
+hostmakedepends="pkg-config gettext doxygen extra-cmake-modules qt5-qmake qt5-host-tools qt6-base-devel"
+makedepends="qt5-devel qt6-base-devel"
+depends="coin3 qt6-base"
+checkdepends="python3-cram"
+short_desc="Cross-platform C and C++ unit testing framework for the 21th century"
+maintainer="Ayoub ELMHAMDI <ayoub.elmhamdi@gmail.com>"
+license="BSD-3-Clause"
+homepage="https://github.com/coin3d/soqt"
+distfiles="https://github.com/coin3d/soqt/releases/download/CI-builds/soqt-latest-src.tar.gz"
+checksum=14e96faf18158d85d800238793ab69b358f1ac196761d24ffb03823ebb04eb2f
+
+post_install() {
+	vlicense LICENSE
+}

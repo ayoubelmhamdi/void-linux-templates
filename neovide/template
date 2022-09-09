@@ -1,6 +1,6 @@
 # Template file for 'neovide'
 pkgname=neovide
-version=0.8.0
+version=0.10.0
 revision=1
 build_style=cargo
 configure_args="--no-default-features --features=winit"
@@ -12,7 +12,7 @@ maintainer="Tiago Carvalho <t1ago_@outlook.com>"
 license="MIT"
 homepage="https://github.com/neovide/neovide"
 distfiles="https://github.com/neovide/neovide/archive/${version}.tar.gz"
-checksum=1fc759a028e6663893b08c010eb3aa8da6d33ee2c96bb789447122701552ad1b
+checksum=b252d2fd6ca6acc0cefdc522f9400076ec80203a9429aa38289fe1a4520abe64
 
 
 export CMAKE_POLICY_DEFAULT_CMP0004=OLD

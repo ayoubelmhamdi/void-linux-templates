@@ -1,0 +1,20 @@
+# Template file for 'mdbook-latex'
+# New versions need to be tested for compatibility with mdBook
+pkgname=mdbook-latex
+version=0.1.40
+revision=1
+#wrksrc="mdbook-latex"
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="openssl-devel"
+short_desc="Backend for mdBook which will check links for you"
+maintainer="Ayoub ELMHAMDI <ayoub.elmhamdi@gmail.com>"
+license="MIT"
+homepage="https://github.com/lbeckman314/mdbook-latex"
+#distfiles="https://github.com/lbeckman314/mdbook-latex/releases/download/v${version}/mdbook-latex-v${version}-x86_64-unknown-linux-gnu.tar.gz"
+distfiles="https://github.com/lbeckman314/mdbook-latex/archive/refs/tags/v${version}.tar.gz"
+checksum=d6baab75a8939e5e213787c39acf79c4eec23caa966a01d8d0a9b0d4b281cf34
+
+post_install() {
+	vlicense LICENSE
+}
