@@ -1,0 +1,14 @@
+# Template file for 'dura'
+pkgname=dura
+version=0.2.0
+revision=1
+wrksrc="dura-0.2.0-rc1"
+build_style=cargo
+short_desc="Dura is a background process that watches your Git repositories"
+maintainer="Ayoub ELMHAMDI <ayoub.elmhamdi@gmail.com>"
+license="Apache-2.0"
+homepage="https://github.com/tkellogg/dura"
+distfiles="https://github.com/tkellogg/dura/archive/refs/tags/${version}-rc1.tar.gz"
+checksum=7632de1df390c48b85543b8b2d609bb2ac2bfd146839e90278320358bb4542ff
+
+makedepends="pkg-config openssl-devel"
