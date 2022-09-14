@@ -1,0 +1,14 @@
+# Template file for 'soqt'
+pkgname=geant4
+version=11.0.2
+revision=1
+wrksrc="$pkgname"
+build_style=cmake
+makedepends="qt6-base-devel qt5-devel libXmu-devel"
+depends="soqt"
+short_desc=""
+maintainer="Ayoub ELMHAMDI <ayoub.elmhamdi@gmail.com>"
+license=""
+homepage=""
+distfiles="https://cern.ch/geant4-data/datasets/G4NDL.4.6.tar.gz "
+checksum=14e96faf18158d85d800238793ab69b358f1ac196761d24ffb03823ebb04eb2f
