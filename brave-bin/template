@@ -1,39 +1,40 @@
 # Template file for 'brave-bin'
 pkgname=brave-bin
-version=1.43.89
+version=1.49.132
 revision=1
-hostmakedepends="tar xz"
+archs="x86_64"
+hostmakedepends="xz tar"
+depends="upower"
 short_desc="Secure, fast and private web browser with ad blocker"
-maintainer="baldeau <fabian.baldeau@protonmail.com>"
-license="Mozilla Public License Version 2.0"
-homepage="https://brave.com"
-distfiles="https://github.com/brave/brave-browser/releases/download/v${version}/brave-browser_${version}_amd64.deb"
-checksum=7aac2a9f872f573a049a1db4eb26c6e8f596839e9cb79df0632441390f303798
-only_for_archs="x86_64"
+maintainer="Freddy List <antivoid-packages@freddylist.xyz>"
+license="MPL-2.0"
+homepage="https://brave.com/"
+changelog="https://github.com/brave/brave-browser/blob/master/CHANGELOG_DESKTOP.md"
+_filename="brave-browser_${version}_amd64.deb"
+distfiles="https://github.com/brave/brave-browser/releases/download/v${version}/${_filename}"
+checksum=eb2e35738dbe8fd6ac7f97437d4b6af656718d167d9f50dccafd51cd30f5b99e
 nostrip=yes
 
 do_extract() {
-	mkdir -p ${DESTDIR}
-	ar x ${XBPS_SRCDISTDIR}/${pkgname}-${version}/brave-browser_${version}_amd64.deb
+	ar -x "${XBPS_SRCDISTDIR}/${pkgname}-${version}/${_filename}"
 }
 
 do_install() {
-	tar xf data.tar.xz -C ${DESTDIR}
+	tar -xf data.tar.xz -C "${DESTDIR}"
 
-	# Install the icons
-	for size in 24 32 48 64 128 256; do
-		# Create the brave browser xdg directory
-		mkdir -p ${DESTDIR}/usr/share/icons/hicolor/${size}x${size}/apps
+	local brave_dir="${DESTDIR}/opt/brave.com/brave"
 
-		# Copy the brave browser icon
-		mv ${DESTDIR}/opt/brave.com/brave/product_logo_${size}.png \
-		${DESTDIR}/usr/share/icons/hicolor/${size}x${size}/apps/brave-browser.png
+	vlicense "${brave_dir}/LICENSE"
+
+	for logo in "${brave_dir}"/product_logo_*.png; do
+		size=${logo##*_}
+		size=${size%.*}
+
+		vinstall "${logo}" 644 "usr/share/icons/hicolor/${size}x${size}/apps" 'brave-browser.png'
 	done
 
-	# Remove unused icons
-	rm ${DESTDIR}/opt/brave.com/brave/*.xpm
-
-	# Remove the Debian/Ubuntu crontab
-	rm -rf ${DESTDIR}/etc
-	rm -rf ${DESTDIR}/opt/brave.com/brave/cron
+	rm -r \
+		"${DESTDIR}/etc" \
+		"${brave_dir}/cron" \
+		"${brave_dir}"/product_logo_*
 }
