@@ -9,7 +9,7 @@ $ sudo mount --bind ../my_template/new srcpkgs/new
 it's make simple to maintenir(editing+backup, simple to `rebase` with `voidlinux`)
 
 ### TODO:
-- [] `hyperland
+- [] `hyperland`
 
 ### Done
 - [x] `brave`
