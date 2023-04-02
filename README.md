@@ -1,24 +1,29 @@
 # void-linux-templates
-some templates for voidlinux
+some templates for `voidlinux`
 
-use mount to add `new` app to `void-packages`
+Use mount to add `new` app to `void-packages`
 ```bash
 $ mkdir srcpkgs/new
 $ sudo mount --bind ../my_template/new srcpkgs/new
 ```
-it's make simple to maintenir(editing+backup, simple to rebase with voidlinux)
+it's make simple to maintenir(editing+backup, simple to `rebase` with `voidlinux`)
 
-### New
-- [x] neovide
-- [x] criterion
-- [x] mprocs
-- [x] gccdiag
+### TODO:
+- [] `hyperland
 
-- [ ] gnvim
-
-### UPDATE
-- [x] glibc to 2.35v  
-
-### go back
-- [x] curl 7.82
-
+### Done
+- [x] `brave`
+- [x] `criterion`
+- [x] `dura`
+- [x] `frog`
+- [x] `gccdiag`
+- [x] `geant4`
+- [x] `mdBook`
+- [x] `mdbook-latex`
+- [x] `mprocs`
+- [x] `neovide`
+- [x] `neovim`
+- [x] `python3-pytesseract`
+- [x] `soqt`
+- [x] `glibc to 2.35v`
+- [x] `curl 7.82`
