@@ -12,7 +12,7 @@ it's make simple to maintenir(editing+backup, simple to `rebase` with `voidlinux
 - [ ] `hyperland`
 
 ### Done
-- [x] `brave`
+- [x] `brave` version: 1.50.110
 - [x] `criterion`
 - [x] `dura`
 - [x] `frog`
