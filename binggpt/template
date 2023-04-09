@@ -1,0 +1,20 @@
+# Template file for Desktop application of new Bing's AI-powered chat
+pkgname=binggpt
+version=0.3.3
+revision=1
+archs="x86_64"
+create_wrksrc=yes
+short_desc="lib i965"
+maintainer="Ayoub Mhamdi <ayoubelmhamdi@gmail.com>"
+license="Apache-2.0"
+homepage="https://github.com/dice2o/BingGPT"
+distfiles="https://github.com/dice2o/BingGPT/releases/download/v${version}/BingGPT-${version}-linux-x64.deb"
+checksum=b6063cc4a03b7ad54c8f8a287c31ff7994abfff8004f673c2d53a1bb2cc1ca0b
+
+restricted=yes
+noverifyrdeps=yes
+nopie=yes
+
+do_install() {
+	vcopy usr /
+}
