@@ -1,22 +1,32 @@
-# Template file for 'neovim'
-pkgname=neovim
-version=0.8.1
+# Template file for 'neovim-nightly'
+pkgname=neovim-nightly
+version=0.9.0.dev.1319+g10baf8971
 revision=1
-wrksrc="neovim-nightly"
+wrksrc="neovim-${version}"
+archs="x86_64* i686*"
 build_style=cmake
 build_helper="qemu"
-configure_args="-DCMAKE_BUILD_TYPE=Release -DCOMPILE_LUA=OFF"
-hostmakedepends="pkg-config gettext gperf LuaJIT lua51-lpeg lua51-mpack"
+# MIN_LOG_LEVEL 1: INFO, 3: ERROR, upstream's release's default is 3
+configure_args="-DCOMPILE_LUA=OFF -DPREFER_LUA=$(vopt_if luajit OFF ON)
+ -DMIN_LOG_LEVEL=3 -DCMAKE_BUILD_TYPE=RelWithDebInfo"
+hostmakedepends="pkg-config gettext gperf lua51-lpeg lua51-mpack lua51-BitOp
+ $(vopt_if luajit LuaJIT lua51)"
 makedepends="libtermkey-devel libuv-devel libvterm-devel msgpack-devel
- LuaJIT-devel libluv-devel tree-sitter-devel"
-depends="libvterm>=0.1.0"
-short_desc="Fork of Vim aiming to improve user experience, plugins and GUIs"
-maintainer="Steve Prybylski <sa.prybylx@gmail.com>"
-license="Apache-2.0, custom:Vim"
-homepage="https://neovim.io"
-#distfiles="https://github.com/neovim/neovim/archive/v${version}.tar.gz"
-distfiles="https://github.com/neovim/neovim/archive/refs/tags/nightly.tar.gz"
-checksum=6b98ddce19a1a92520c84ab29c2fcd7bead0cab7d3b1f58b405807fc7e1e4488
+ libluv-devel tree-sitter-devel $(vopt_if luajit LuaJIT-devel lua51-devel)"
+short_desc="Neovim nightly build"
+maintainer="Freddy List <antivoid-packages@freddylist.xyz>"
+license="Apache-2.0, Vim"
+homepage="https://neovim.io/"
+distfiles="https://github.com/neovim/neovim/archive/${version##*+g}.tar.gz"
+checksum=11ba33a66c44d714a5c190889731aa10fd717b8a43f4cc3fd484275ad17daacf
+conflicts=neovim
+
+build_options=luajit
+
+case "$XBPS_TARGET_MACHINE" in
+	riscv64*) build_options_default="" ;;
+	*) build_options_default="luajit" ;;
+esac
 
 alternatives="
  vi:vi:/usr/bin/nvim
@@ -25,6 +35,9 @@ alternatives="
  vi:view.1:/usr/share/man/man1/nvim.1
  vim:vim:/usr/bin/nvim
  vim:vim.1:/usr/share/man/man1/nvim.1"
+
+# They want assertion
+CFLAGS=-UNDEBUG
 
 pre_configure() {
 	vsed -i runtime/CMakeLists.txt \
