@@ -1,0 +1,21 @@
+# Template file for newpandoc
+pkgname=pandoc3
+version=3.1.2
+revision=1
+archs="x86_64"
+create_wrksrc=yes
+short_desc="bingGPT Desktop electron based system"
+maintainer="Ayoub Mhamdi <ayoubelmhamdi@gmail.com>"
+license="Apache-2.0"
+homepage="https://github.com/jgm/pandoc"
+distfiles="https://github.com/jgm/pandoc/releases/download/${version}/pandoc-${version}-1-amd64.deb"
+checksum=bbceced0adc4658d490fcfe02b318f0dcfd5ca5e9ad6f32ca514470bb652376a
+
+restricted=yes
+noverifyrdeps=yes
+nopie=yes
+
+do_install() {
+	vcopy usr /
+}
+
