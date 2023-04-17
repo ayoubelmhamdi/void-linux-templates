@@ -1,5 +1,5 @@
 # Template file for 'neovim-nightly'
-pkgname=neovim-nightly
+pkgname=neovim
 version=0.9.0.dev.1319+g10baf8971
 revision=1
 wrksrc="neovim-${version}"
@@ -8,7 +8,7 @@ build_style=cmake
 build_helper="qemu"
 # MIN_LOG_LEVEL 1: INFO, 3: ERROR, upstream's release's default is 3
 configure_args="-DCOMPILE_LUA=OFF -DPREFER_LUA=$(vopt_if luajit OFF ON)
- -DMIN_LOG_LEVEL=3 -DCMAKE_BUILD_TYPE=RelWithDebInfo"
+ -DMIN_LOG_LEVEL=3 -DCMAKE_BUILD_TYPE=Release"
 hostmakedepends="pkg-config gettext gperf lua51-lpeg lua51-mpack lua51-BitOp
  $(vopt_if luajit LuaJIT lua51)"
 makedepends="libtermkey-devel libuv-devel libvterm-devel msgpack-devel
